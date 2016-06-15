@@ -1,7 +1,12 @@
 import demjson
 
-json = '[{"a":1,"b":2,"c":3,"d":4,"e":5}]';
+class Student:
+        def __init__(self,StudentName,StudentPhoneNumber,StudentPercentage):
+                self.StudentName = StudentName
+                self.StudentPhoneNumber = StudentPhoneNumber
+                self.StudentPercentage =StudentPercentage
 
-text = demjson.decode(json)
-print(text)
-
+s1=Student()
+s1.StudentName=input("Enter Student's Name : ")
+s1.StudentPhoneNumber= input("Enter Student's PhoneNumber : ")
+s1.StudentPercentage= input("Enter Student's Percentage : ")
