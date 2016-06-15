@@ -6,7 +6,7 @@ class Student:
                 self.StudentPhoneNumber = StudentPhoneNumber
                 self.StudentPercentage =StudentPercentage
 
-s1=Student()
+s1=Student(StudentName,StudentPhoneNumber,StudentPercentage)
 s1.StudentName=input("Enter Student's Name : ")
 s1.StudentPhoneNumber= input("Enter Student's PhoneNumber : ")
 s1.StudentPercentage= input("Enter Student's Percentage : ")
