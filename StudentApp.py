@@ -6,21 +6,14 @@ class Student:
                 self.StudentPhoneNumber = StudentPhoneNumber
                 self.StudentPercentage =StudentPercentage
 
-                def Read(self):     
-                    print(StudentName)
-                    print(StudentPhoneNumber)
-                    print(StudentPercentage)
+Name=input("Enter Student's Name : ")
+PhoneNumber= input("Enter Student's PhoneNumber : ")
+Percentage= input("Enter Student's Percentage : ")
+s1=Student(Name,PhoneNumber,Percentage)
 
-                def  Add():
-                    StudentName= input("Enter Student's Name : ")
-                    StudentPhoneNumber= input("Enter Student's PhoneNumber : ")
-                    StudentPercentage= input("Enter Student's Percentage : ")
-                    jsonStudentName = demjson.encode(StudentName)
-                    print(jsonStudentName)
-                    jsonStudentPhoneNumber = demjson.encode(StudentPhoneNumber)
-                    print(jsonStudentPhoneNumber)
-                    jsonStudentPercentage = demjson.encode(StudentPercentage)
-                    print(jsonStudentPercentage)
-                    return
+def Read():     
+                print(s1.StudentName)
+                print(s1.StudentPhoneNumber)
+                print(s1.StudentPercentage)
 
-                Add()
+Read()
