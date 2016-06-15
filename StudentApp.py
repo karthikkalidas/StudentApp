@@ -6,14 +6,17 @@ class Student:
                 self.StudentPhoneNumber = StudentPhoneNumber
                 self.StudentPercentage =StudentPercentage
 
+        def Read(self):     
+                print(self.StudentName)
+                print(self.StudentPhoneNumber)
+                print(self.StudentPercentage)
+
 Name=input("Enter Student's Name : ")
 PhoneNumber= input("Enter Student's PhoneNumber : ")
 Percentage= input("Enter Student's Percentage : ")
+
 s1=Student(Name,PhoneNumber,Percentage)
 
-def Read():     
-                print(s1.StudentName)
-                print(s1.StudentPhoneNumber)
-                print(s1.StudentPercentage)
 
-Read()
+
+s1.Read()
