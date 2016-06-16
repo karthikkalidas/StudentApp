@@ -36,13 +36,16 @@ def Search():
             print(x.StudentPhoneNumber)  
             print(x.StudentPercentage)
 
+
+Func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search")
+if func==1
+Read()
+elif func==2
 Add()
+elif func==3
+Delete()
+elif func==3
 Search()
-
-
-
-
-#Make a command line interface that asks me (teacher) what I want to do (add a student, remove a student, edit) and then calls the appropriate function
 
 
 
