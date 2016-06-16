@@ -36,16 +36,18 @@ def Search():
             print(x.StudentPhoneNumber)  
             print(x.StudentPercentage)
 
-
-Func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search")
-if func==1
-Read()
-elif func==2
-Add()
-elif func==3
-Delete()
-elif func==3
-Search()
+while True:
+    func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search\n(5) Quit")
+    if func==1
+        Read()
+    elif func==2
+        Add()
+    elif func==3
+        Delete()
+    elif func==4
+        Search()
+    elif func==5
+        break
 
 
 
