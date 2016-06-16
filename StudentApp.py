@@ -37,7 +37,7 @@ def Search():
             print(x.StudentPercentage)
 
 
-Func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search")
+func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search")
 if func==1
 Read()
 elif func==2
