@@ -1,53 +1,58 @@
-import demjson
+import json
 from pprint import pprint
 import sys
 
 
 class Student:
-        def __init__(self):
-                self.StudentName=input("Enter Student's Name : ")
-                self.StudentPhoneNumber= input("Enter Student's PhoneNumber : ")
-                self.StudentPercentage= input("Enter Student's Percentage : ")
+    def __init__(self, StudentName, StudentPhoneNumber, StudentPercentage):
+        self.StudentName=StudentName
+        self.StudentPhoneNumber=StudentPhoneNumber
+        self.StudentPercentage=StudentPercentage
 
-        def Read(self):     
-                print(self.StudentName)
-                print(self.StudentPhoneNumber)
-                print(self.StudentPercentage)
-
-        
-        def __repr__(self):
-                return ('Name : '+self.StudentName+' PhoneNumber : '+self.StudentPhoneNumber+' Percentage : '+self.StudentPercentage)
+    def __repr__(self):
+       return ('Name : '+self.StudentName+' PhoneNumber : '+self.StudentPhoneNumber+' Percentage : '+self.StudentPercentage)
 
 
 StudentList = []
 
-
 def Add():
-        StudentList.append(Student())
+    Name = input("Enter Student's Name : ")
+    PhoneNumber = input("Enter Student's PhoneNumber : ")
+    Percentage = input("Enter Student's Percentage : ")
+    new_student=Student(Name,PhoneNumber,Percentage)
+    StudentList.append(new_student)
+    with open("StudentListFile.txt", 'a') as StudentListFile:
+        for s in StudentList:
+            StudentListFile.write(str(s) + '\n')
+
+def Read():
+    with open("StudentListFile.txt", 'r') as f:
+        StudentList = [line.rstrip('\n') for line in f]
+        print(StudentList)
 
 def Delete():
-    StudentList.pop(int(input("Enter Index : "))-1)
-
-def Search():     
-    Name=input("Enter the Name : ")
-    for x in StudentList:
-        if x.StudentName == Name:
-            print(x.StudentName)
-            print(x.StudentPhoneNumber)  
-            print(x.StudentPercentage)
+    with open("StudentListFile.txt", 'r') as f:
+        StudentList = [line.rstrip('\n') for line in f]
+    del StudentList[int(input("Enter Index : "))-1]
+    #Now WRITING Back
+    with open("StudentListFile.txt", 'w') as StudentListFile:
+        for s in StudentList:
+            StudentListFile.write(str(s) + '\n')
 
 while True:
-    func=input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Search\n(5) Quit\n")
+
+    func=int(input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Quit\n"))
     if func == 1:
-        StudentList.index(int(input("Enter Index : "))-1).Read()
+        Read()
     elif func == 2:
         Add()
     elif func == 3:
         Delete()
     elif func == 4:
-        Search()
-    elif func == 5:
         break
+    else:
+        print("Your option doesn't make sense to me")
 
 
-    
+
+
