@@ -52,7 +52,3 @@ while True:
         break
     else:
         print("Your option doesn't make sense to me")
-
-
-
-
