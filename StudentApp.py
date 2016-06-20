@@ -10,7 +10,7 @@ class Student:
         self.StudentPercentage=StudentPercentage
 
     def __repr__(self):
-       return ('Name : '+self.StudentName+' PhoneNumber : '+self.StudentPhoneNumber+' Percentage : '+self.StudentPercentage)
+       return (self.StudentName+' '+self.StudentPhoneNumber+' '+self.StudentPercentage)
 
 
 StudentList = []
