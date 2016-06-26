@@ -1,25 +1,30 @@
 import json
 from pprint import pprint
 import sys
+import os
 
 
 class Student:
-    def __init__(self, StudentName, StudentPhoneNumber, StudentPercentage):
-        self.StudentName=StudentName
-        self.StudentPhoneNumber=StudentPhoneNumber
-        self.StudentPercentage=StudentPercentage
+    def __init__(self, Name, PhoneNumber, Marks1, Marks2, Marks3):
+        self.Name=Name
+        self.PhoneNumber=PhoneNumber
+        self.Marks1=Marks1
+        self.Marks2=Marks2
+        self.Marks3=Marks3
 
     def __repr__(self):
-       return (self.StudentName+' '+self.StudentPhoneNumber+' '+self.StudentPercentage)
+       return (self.Name+' '+self.PhoneNumber+' '+self.Marks1+' '+self.Marks2+' '+self.Marks3)
 
 
 StudentList = []
 
 def Add():
-    Name = input("Enter Student's Name : ")
-    PhoneNumber = input("Enter Student's PhoneNumber : ")
-    Percentage = input("Enter Student's Percentage : ")
-    new_student=Student(Name,PhoneNumber,Percentage)
+    sName = input("Enter Student's Name : ")
+    sPhoneNumber = input("Enter Student's PhoneNumber : ")
+    sMarks1 = input("Enter Marks1 : ")
+    sMarks2 = input("Enter Marks2 : ")
+    sMarks3 = input("Enter Marks3 : ")
+    new_student=Student(sName,sPhoneNumber,sMarks1,sMarks2,sMarks3)
     StudentList.append(new_student)
     with open("StudentListFile.txt", 'a') as StudentListFile:
         for s in StudentList:
@@ -30,25 +35,34 @@ def Read():
         StudentList = [line.rstrip('\n') for line in f]
         print(StudentList)
 
-def Delete():
-    with open("StudentListFile.txt", 'r') as f:
-        StudentList = [line.rstrip('\n') for line in f]
-    del StudentList[int(input("Enter Index : "))-1]
-    #Now WRITING Back
-    with open("StudentListFile.txt", 'w') as StudentListFile:
-        for s in StudentList:
-            StudentListFile.write(str(s) + '\n')
+def Edit(): 
+    sindex =int(input("Enter Index : "))-1
+    sName = input("Enter Student's Name : ")
+    sPhoneNumber = input("Enter Student's PhoneNumber : ")
+    sMarks1 = input("Enter Marks1 : ")
+    sMarks2 = input("Enter Marks2 : ")
+    sMarks3 = input("Enter Marks3 : ")
+    # read a list of lines into data
+    with open('StudentListFile.txt', 'r') as file:
+        data = file.readlines()
+    data[sindex] = sName+' '+sPhoneNumber+' '+sMarks1+' '+sMarks2+' '+sMarks3+'\n'
+    # and write everything back
+    with open('StudentListFile.txt', 'w') as file:
+        file.writelines( data )
 
 while True:
-
-    func=int(input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Delete\n(4) Quit\n"))
+    os.system('clear')
+    func=int(input("Choose Any Number : \n(1) Read\n(2) Add\n(3) Edit\n(4) Quit\n"))
+    os.system('clear')
     if func == 1:
         Read()
     elif func == 2:
         Add()
     elif func == 3:
-        Delete()
+        Edit()
     elif func == 4:
-        break
+        quit()
     else:
         print("Your option doesn't make sense to me")
+
+    input("\nPress any key to continue : ")
